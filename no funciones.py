@@ -102,3 +102,23 @@ for data, targets in test_data:
       one_test +=1
 
 cero_train, one_train, cero_test, one_test
+
+---------------------------------------
+
+train_data = tf.keras.preprocessing.timeseries_dataset_from_array(
+    data=X_train_norm,
+    targets = y_train[WINDOW-1:],
+    sequence_length = WINDOW,
+    sequence_stride=WINDOW,
+    sampling_rate=1,
+    batch_size=BATCH_SIZE)
+
+test_data = tf.keras.preprocessing.timeseries_dataset_from_array(
+    data=X_test_norm,
+    targets = y_test[WINDOW-1:],
+    sequence_length = WINDOW,
+    sequence_stride=WINDOW,
+    sampling_rate=1,
+    batch_size=BATCH_SIZE)
+
+len(train_data), len(test_data)
