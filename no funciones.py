@@ -105,20 +105,25 @@ cero_train, one_train, cero_test, one_test
 
 ---------------------------------------
 
+import tensorflow as tf 
+
 train_data = tf.keras.preprocessing.timeseries_dataset_from_array(
-    data=X_train_norm,
-    targets = y_train[WINDOW-1:],
+    data=X_train_a,
+    targets = y_train_a[WINDOW-1:],
     sequence_length = WINDOW,
     sequence_stride=WINDOW,
     sampling_rate=1,
     batch_size=BATCH_SIZE)
 
 test_data = tf.keras.preprocessing.timeseries_dataset_from_array(
-    data=X_test_norm,
-    targets = y_test[WINDOW-1:],
+    data=X_valid_a,
+    targets = y_valid_a[WINDOW-1:],
     sequence_length = WINDOW,
     sequence_stride=WINDOW,
     sampling_rate=1,
     batch_size=BATCH_SIZE)
 
 len(train_data), len(test_data)
+------------------------------------------------------------------
+# index_number = nas.data.index.get_loc(pd.to_datetime("2024-05-02 17:00"))
+# print("Index number for the date {}: {}".format("2024-05-06 03:00", index_number))
