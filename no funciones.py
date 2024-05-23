@@ -51,7 +51,20 @@ for i in range(WINDOW-1,len(X_train),WINDOW):
     mul3 +=1
 X_train = np.delete(X_train, indices_to_delete, axis=0)
 y_train = np.delete(y_train, indices_to_delete, axis=0)
+------------------------------------
+#OTRA OPCION DE BAJAR 0S
 
+window_indices_with_zero = []
+for i in range(WINDOW-1, len(X_train_a), WINDOW):
+    if y_train_a[i] == 0:
+        window_indices_with_zero.append(i)
+num_windows_to_delete = len(window_indices_with_zero) // 4  # 25% of the zero indices
+windows_to_delete = np.random.choice(window_indices_with_zero, num_windows_to_delete, replace=False)
+indices_to_delete = []
+for i in windows_to_delete:
+    indices_to_delete.extend(range(i - (WINDOW - 1), i + 1))
+X_train_a = np.delete(X_train_a, indices_to_delete, axis=0)
+y_train_a = np.delete(y_train_a, indices_to_delete, axis=0)
 ------------------------------------
 #lo mismo de test
 # mul3 = 1
@@ -130,3 +143,8 @@ len(train_data), len(test_data)
 
 ------------------------------------------------------------------
 # sns.reset_orig()
+
+------------------------------------------------------------------
+import joblib
+
+joblib.dump(model, '/content/drive/MyDrive/Fendi Mio/EMA/modelos/2024-05-16/random_forest_model.pkl')
