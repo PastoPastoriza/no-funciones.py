@@ -127,3 +127,6 @@ len(train_data), len(test_data)
 ------------------------------------------------------------------
 # index_number = nas.data.index.get_loc(pd.to_datetime("2024-05-02 17:00"))
 # print("Index number for the date {}: {}".format("2024-05-06 03:00", index_number))
+
+------------------------------------------------------------------
+# sns.reset_orig()
