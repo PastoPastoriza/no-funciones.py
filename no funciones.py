@@ -86,6 +86,8 @@ cero = np.where(y_train_a == 0)[0]
 num_remove=int(0.4*len(cero))
 
 i_remove = np.random.choice(cero,num_remove,replace=False)
+opcion2
+i_remove = cero[-num_remove:]
 
 X_train_a = np.delete(X_train_a,i_remove,axis=0)
 y_train_a = np.delete(y_train_a,i_remove)
