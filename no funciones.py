@@ -150,3 +150,11 @@ print("Index number for the date {}: {}".format("2024-05-06 03:00", index_number
 import joblib
 
 joblib.dump(model, '/content/drive/MyDrive/Fendi Mio/EMA/modelos/2024-05-16/random_forest_model.pkl')
+
+------------------------------------------------------------------
+
+Para que muestre todos los resultados
+
+pd.set_option('display.max_columns', None)
+pd.set_option('display.max_rows', None)
+pd.set_option('display.expand_frame_repr', False)
